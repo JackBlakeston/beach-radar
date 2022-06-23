@@ -48,10 +48,10 @@ const MainContainer = () => {
             padding: 8,
             height: 60,
             backgroundColor: '#fab005',
-          }
+          },
         })}
       >
-        <Tab.Screen name={homeName} component={HomePage}/>
+        <Tab.Screen name={homeName} component={HomePage} options={{ headerShown: false }}/>
         <Tab.Screen name={mapName} component={MapPage}/>
         <Tab.Screen name={bookmarksName} component={BookmarksPage}/>
         <Tab.Screen name={settingsName} component={SettingsPage}/>
@@ -59,7 +59,5 @@ const MainContainer = () => {
     </NavigationContainer>
   )
 };
-
-
 
 export default MainContainer;

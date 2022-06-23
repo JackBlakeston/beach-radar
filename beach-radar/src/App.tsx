@@ -1,3 +1,4 @@
+import { registerRootComponent } from 'expo';
 import * as React from 'react';
 
 import MainContainer from './navigation/MainContainer';
@@ -8,4 +9,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default registerRootComponent(App);
