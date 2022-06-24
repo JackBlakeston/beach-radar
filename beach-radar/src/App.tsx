@@ -24,8 +24,7 @@ const App = () => {
       setCoordinates({lat: location.coords.latitude, lon: location.coords.longitude});
     })();
   }, []);
-
-  console.log('App', coordinates);
+  // TODO move coordinates into context
 
   // if (errorMsg) {
     // TODO decide what to do when we can't get location

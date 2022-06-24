@@ -25,7 +25,6 @@ interface IMainContainerProps {
 };
 
 const MainContainer = ({ coordinates }: IMainContainerProps) => {
-  console.log('maincontainer', coordinates)
   return (
     <NavigationContainer>
       <Tab.Navigator
