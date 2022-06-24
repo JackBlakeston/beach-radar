@@ -9,6 +9,8 @@ import BookmarksPage from './screens/BookmarksPage';
 import MapPage from './screens/MapPage';
 import SettingsPage from './screens/SettingsPage';
 import styles from './styles';
+import theme from '../../style/theme';
+import { ICoordinates } from '../interfaces';
 
 // Screen names
 const homeName = 'Beaches';
@@ -18,7 +20,12 @@ const bookmarksName = 'Bookmarked';
 
 const Tab = createBottomTabNavigator();
 
-const MainContainer = () => {
+interface IMainContainerProps {
+  coordinates: ICoordinates;
+};
+
+const MainContainer = ({ coordinates }: IMainContainerProps) => {
+  console.log('maincontainer', coordinates)
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -37,7 +44,7 @@ const MainContainer = () => {
               iconName = focused ? 'settings-sharp' : 'settings-outline';
             }
 
-            return <Ionicons name={iconName as string} size={27} color={color} />
+            return <Ionicons name={iconName as string} size={theme.ICON_SIZE_MEDIUM} color={color} />
           },
           tabBarActiveTintColor: 'black',
           tabBarInactiveTintColor: 'black',
@@ -45,7 +52,9 @@ const MainContainer = () => {
           tabBarStyle: styles.tabBar,
         })}
       >
-        <Tab.Screen name={homeName} component={HomePage} options={{ headerShown: false }}/>
+        <Tab.Screen name={homeName} options={{ headerShown: false }}>
+          {() => <HomePage coordinates={coordinates} />}
+        </Tab.Screen>
         <Tab.Screen name={mapName} component={MapPage}/>
         <Tab.Screen name={bookmarksName} component={BookmarksPage}/>
         <Tab.Screen name={settingsName} component={SettingsPage}/>

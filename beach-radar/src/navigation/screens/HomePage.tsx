@@ -1,9 +1,18 @@
-import * as React from 'react';
+import React from 'react';
 import { View, Text } from 'react-native';
+import { ICoordinates } from '../../interfaces';
 
-const HomePage = () => {
+interface IHomePageProps {
+  coordinates: ICoordinates;
+};
+
+const HomePage = ({ coordinates }: IHomePageProps) => {
+  console.log('home page', coordinates);
   return (
-    <Text>This is the home page</Text>
+    <>
+      <Text>This is the home page</Text>
+      <Text></Text>
+    </>
   );
 }
 
