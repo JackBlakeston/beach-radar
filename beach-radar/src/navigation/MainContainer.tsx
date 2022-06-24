@@ -8,6 +8,7 @@ import HomePage from './screens/HomePage';
 import BookmarksPage from './screens/BookmarksPage';
 import MapPage from './screens/MapPage';
 import SettingsPage from './screens/SettingsPage';
+import styles from './styles';
 
 // Screen names
 const homeName = 'Beaches';
@@ -40,15 +41,8 @@ const MainContainer = () => {
           },
           tabBarActiveTintColor: 'black',
           tabBarInactiveTintColor: 'black',
-          tabBarLabelStyle: {
-            paddingBottom: 8,
-            fontSize: 10,
-          },
-          tabBarStyle: {
-            padding: 8,
-            height: 60,
-            backgroundColor: '#fab005',
-          },
+          tabBarLabelStyle: styles.tabBarLabel,
+          tabBarStyle: styles.tabBar,
         })}
       >
         <Tab.Screen name={homeName} component={HomePage} options={{ headerShown: false }}/>
