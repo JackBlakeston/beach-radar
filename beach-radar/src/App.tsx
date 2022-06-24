@@ -2,6 +2,7 @@ import { registerRootComponent } from 'expo';
 import React, { useEffect, useState } from 'react';
 import * as Location from 'expo-location';
 
+
 import MainContainer from './navigation/MainContainer';
 import { ICoordinates } from './interfaces';
 

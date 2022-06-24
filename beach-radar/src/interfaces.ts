@@ -4,7 +4,7 @@ export interface IBeach {
   coordinates: ICoordinates
   name: string;
   location: string;
-  distance: number;
+  distance?: number;
   score: number;
   surroundings: TSurrounding;
   size: TSize;
