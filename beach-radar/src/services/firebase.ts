@@ -5,6 +5,8 @@ import { getAuth } from "firebase/auth";
 import { getDatabase, ref, get } from 'firebase/database';
 import { initializeAuth, getReactNativePersistence } from 'firebase/auth/react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getStorage, ref as storageRef, getDownloadURL, listAll } from 'firebase/storage';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -26,8 +28,14 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 
+// Auth - We're doing it this weird way because it fixes the AsyncStorage bug
 export const auth = initializeAuth(firebaseApp, {
   persistence: getReactNativePersistence(AsyncStorage)
 });
+
+// Database
 const db = getDatabase(firebaseApp);
 export const dbRef = ref(db);
+
+// Storage
+export const storage = getStorage(firebaseApp, 'gs://beach-radar.appspot.com/');

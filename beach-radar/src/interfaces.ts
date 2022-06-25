@@ -9,7 +9,7 @@ export interface IBeach {
   surroundings: TSurrounding;
   size: TSize;
   terrain: TTerrain;
-  pictures?: string[];
+  images?: string[];
   weather?: IWeather;
   seaCondition?: ISeaCondition;
   amenities?: TAmenity[];
