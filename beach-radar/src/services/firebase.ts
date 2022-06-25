@@ -19,7 +19,8 @@ const firebaseConfig = {
   storageBucket: "beach-radar.appspot.com",
   messagingSenderId: "96232193553",
   appId: "1:96232193553:web:e8c13b719deeed15267bb0",
-  measurementId: "G-N2BHYDF7FQ"
+  measurementId: "G-N2BHYDF7FQ",
+  databaseURL: "https://beach-radar-default-rtdb.europe-west1.firebasedatabase.app/"
 };
 
 // Initialize Firebase

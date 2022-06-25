@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
-import { ICoordinates } from '../../interfaces';
+import BeachCard from '../../components/BeachCard/BeachCard';
+import { ICoordinates, IBeach } from '../../interfaces';
+import { getBeaches } from '../../utils/getBeaches';
 import getDistance from '../../utils/getDistance';
 
 interface IHomePageProps {
@@ -8,11 +10,21 @@ interface IHomePageProps {
 };
 
 const HomePage = ({ coordinates }: IHomePageProps) => {
+
+  const [beaches, setBeaches] = useState <null | IBeach[]>(null);
+
+  useEffect(() => {
+    getBeaches(coordinates).then(data => {
+      setBeaches(data)
+    });
+  }, [])
+
   return (
-    <>
-      <Text>This is the home page</Text>
-      <Text></Text>
-    </>
+    <View style={{ paddingTop: 30 }}>
+      {beaches && beaches.map(beach => {
+        return <BeachCard key={beach.distance} beach={beach}/>
+      })}
+    </View>
   );
 }
 

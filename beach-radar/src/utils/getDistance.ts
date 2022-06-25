@@ -25,7 +25,7 @@ const getDistance = (userCoord: ICoordinates, beachCoord: ICoordinates) => {
   const beachLat = beachCoord.lat;
   const beachLon = beachCoord.lon;
 
-  return distanceInKmBetweenEarthCoordinates(userLat, userLon, beachLat, beachLon).toFixed(2);
+  return +distanceInKmBetweenEarthCoordinates(userLat, userLon, beachLat, beachLon).toFixed(2);
 }
 
 export default getDistance;
