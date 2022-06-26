@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+
 import theme from "../../../style/theme";
 
 export default StyleSheet.create({
@@ -11,5 +12,6 @@ export default StyleSheet.create({
     marginVertical: 10,
     marginHorizontal: 5,
     borderRadius: 5,
+    overflow: 'hidden',
   }
 });

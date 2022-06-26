@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Platform, Text, View } from "react-native";
 import { IBeach } from "../../interfaces"
 import ImgCarousel from "../ImgCarousel/ImgCarousel";
 import styles from "./BeachCard.styles";
