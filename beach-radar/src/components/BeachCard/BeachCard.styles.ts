@@ -14,6 +14,7 @@ export default StyleSheet.create({
     marginHorizontal: 10,
     borderRadius: 10,
     overflow: 'hidden',
+    backgroundColor: 'white',
   },
   beachInfoRow: {
     flexDirection: 'row',
