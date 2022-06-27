@@ -49,12 +49,13 @@ const ImgCarousel = ({ images }: IImgCarouselProps) => {
           ref={carouselRef}
           data={urls}
           renderItem={CarouselItem}
-          sliderWidth={SCREEN_WIDTH - 10}
-          itemWidth={SCREEN_WIDTH - 10}
+          sliderWidth={SCREEN_WIDTH - 20}
+          itemWidth={SCREEN_WIDTH - 20}
           inactiveSlideShift={0}
           useScrollView={true}
           removeClippedSubviews={false}
           onSnapToItem={(index) => setActiveIndex(index)}
+          decelerationRate={5}
         />
       }
       {isLoaded &&
@@ -62,13 +63,7 @@ const ImgCarousel = ({ images }: IImgCarouselProps) => {
           <Pagination
             dotsLength={urls.length}
             activeDotIndex={activeIndex}
-            dotStyle={{
-              width: 7,
-              height: 7,
-              borderRadius: 4,
-              marginHorizontal: 0,
-              borderWidth: 1,
-            }}
+            dotStyle={styles.dot}
             dotColor={'white'}
             inactiveDotColor={'#cfcfcf'}
             inactiveDotOpacity={0.8}

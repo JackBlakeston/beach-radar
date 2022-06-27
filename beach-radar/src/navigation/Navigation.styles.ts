@@ -8,6 +8,7 @@ export default StyleSheet.create({
     backgroundColor: theme.COLOR_PRIMARY,
   },
   tabBarLabel: {
+    fontFamily: 'JosefinSans_400Regular',
     fontSize: theme.FONT_SIZE_SMALL,
     paddingBottom: 8,
   },

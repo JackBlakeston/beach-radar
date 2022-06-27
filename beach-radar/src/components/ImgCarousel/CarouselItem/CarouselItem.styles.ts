@@ -5,9 +5,9 @@ import { SCREEN_WIDTH } from "../../../constants";
 
 export default StyleSheet.create({
   image: {
-    width: SCREEN_WIDTH - 10,
+    width: SCREEN_WIDTH - 20,
     height: theme.CARD_IMAGE_HEIGHT,
-    borderTopLeftRadius: 4,
-    borderTopRightRadius: 4
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8
   }
 });

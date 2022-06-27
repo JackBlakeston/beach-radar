@@ -8,7 +8,7 @@ import HomePage from './screens/HomePage';
 import BookmarksPage from './screens/BookmarksPage';
 import MapPage from './screens/MapPage';
 import SettingsPage from './screens/SettingsPage';
-import styles from './styles';
+import styles from './Navigation.styles';
 import theme from '../../style/theme';
 import { ICoordinates } from '../interfaces';
 
@@ -20,11 +20,11 @@ const bookmarksName = 'Bookmarked';
 
 const Tab = createBottomTabNavigator();
 
-interface IMainContainerProps {
+interface INavigationProps {
   coordinates: ICoordinates;
 };
 
-const MainContainer = ({ coordinates }: IMainContainerProps) => {
+const Navigation = ({ coordinates }: INavigationProps) => {
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -62,4 +62,4 @@ const MainContainer = ({ coordinates }: IMainContainerProps) => {
   )
 };
 
-export default MainContainer;
+export default Navigation;
