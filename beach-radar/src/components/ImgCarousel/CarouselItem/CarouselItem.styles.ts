@@ -4,10 +4,14 @@ import theme from "../../../../style/theme";
 import { SCREEN_WIDTH } from "../../../constants";
 
 export default StyleSheet.create({
-  image: {
+  imageSmall: {
+    height: theme.IMAGE_HEIGHT_CARD,
     width: SCREEN_WIDTH - 20,
-    height: theme.CARD_IMAGE_HEIGHT,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8
-  }
+  },
+  imageLarge: {
+    height: theme.IMAGE_HEIGHT_MODAL,
+    width: SCREEN_WIDTH,
+  },
 });

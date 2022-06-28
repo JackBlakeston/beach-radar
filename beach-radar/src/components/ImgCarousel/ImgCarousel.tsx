@@ -5,18 +5,20 @@ import Carousel, { Pagination } from "react-native-snap-carousel";
 
 import { NO_IMG_URL, SCREEN_WIDTH } from "../../constants";
 import { storage } from "../../services/firebase";
-import CarouselItem from "./CarouselItem/CarouselItem";
+import CarouselItemLarge from "./CarouselItem/CarouselItemLarge";
+import CarouselItemSmall from "./CarouselItem/CarouselItemSmall";
 import styles from './ImgCarousel.styles';
 
 interface IImgCarouselProps {
   images: string[];
+  isCardView?: boolean;
 };
 
-const ImgCarousel = ({ images }: IImgCarouselProps) => {
+const ImgCarousel = ({ images, isCardView = true }: IImgCarouselProps) => {
 
   const [urls, setUrls] = useState<string[]>([NO_IMG_URL]);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
 
   useEffect(() => {
     if (images) {
@@ -39,7 +41,6 @@ const ImgCarousel = ({ images }: IImgCarouselProps) => {
   }, []);
 
   const carouselRef = useRef(null);
-
   return (
     <View style={styles.mainContainer}>
       {isLoaded &&
@@ -48,9 +49,9 @@ const ImgCarousel = ({ images }: IImgCarouselProps) => {
           layoutCardOffset={0}
           ref={carouselRef}
           data={urls}
-          renderItem={CarouselItem}
-          sliderWidth={SCREEN_WIDTH - 20}
-          itemWidth={SCREEN_WIDTH - 20}
+          renderItem={isCardView ? CarouselItemSmall : CarouselItemLarge}
+          sliderWidth={isCardView ? SCREEN_WIDTH - 20 : SCREEN_WIDTH}
+          itemWidth={isCardView ? SCREEN_WIDTH - 20 : SCREEN_WIDTH}
           inactiveSlideShift={0}
           useScrollView={true}
           removeClippedSubviews={false}
@@ -59,7 +60,10 @@ const ImgCarousel = ({ images }: IImgCarouselProps) => {
         />
       }
       {isLoaded &&
-        <View style={styles.paginationContainer}>
+        <View style={[
+          styles.paginationContainer,
+          isCardView ? styles.paginationContainerSmall : styles.paginationContainerLarge
+        ]}>
           <Pagination
             dotsLength={urls.length}
             activeDotIndex={activeIndex}

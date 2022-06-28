@@ -1,6 +1,5 @@
 import { Image, View } from "react-native";
 
-import { CAROUSEL_ITEM_WIDTH, SCREEN_WIDTH } from "../../../constants";
 import styles from './CarouselItem.styles';
 
 interface ICarouselItemProps {
@@ -8,12 +7,12 @@ interface ICarouselItemProps {
   index: number;
 };
 
-const CarouselItem = ({ item, index }: ICarouselItemProps) => {
+const CarouselItemLarge = ({ item, index }: ICarouselItemProps) => {
   return (
     <View key={index}>
       <Image
         style={
-          styles.image
+          styles.imageLarge
         }
         source={{ uri: item }}
       />
@@ -21,4 +20,4 @@ const CarouselItem = ({ item, index }: ICarouselItemProps) => {
   );
 }
 
-export default CarouselItem;
+export default CarouselItemLarge;

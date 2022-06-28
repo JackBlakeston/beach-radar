@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { GestureResponderEvent, ScrollView, View } from 'react-native';
+import { Alert, GestureResponderEvent, Modal, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import CustomText from '../../../../style/CustomText';
 
 import BeachCard from '../../../components/BeachCard/BeachCard';
+import BeachModal from '../../../components/BeachModal/BeachModal';
+import ImgCarousel from '../../../components/ImgCarousel/ImgCarousel';
 import PrimaryButton from '../../../components/PrimaryButton/PrimaryButton';
 import { FILTERS, SORT } from '../../../constants';
 import { ICoordinates, IBeach } from '../../../interfaces';
@@ -16,6 +19,8 @@ interface IHomePageProps {
 const HomePage = ({ coordinates }: IHomePageProps) => {
 
   const [beaches, setBeaches] = useState<null | IBeach[]>(null);
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  const [displayedBeach, setDisplayedBeach] = useState<null | IBeach>(null);
 
   useEffect(() => {
     getBeaches(coordinates).then(data => {
@@ -32,12 +37,24 @@ const HomePage = ({ coordinates }: IHomePageProps) => {
   };
 
   const handleCardPress = (event: GestureResponderEvent, beach: IBeach) => {
-    console.log('pressed card!')
+    setDisplayedBeach(beach);
+    setIsModalVisible(true);
   }
 
   return (
-      // TODO check if FlatList gives us better performance, once we have a large enough DB
+    // TODO check if FlatList gives us better performance, once we have a large enough DB
     <SafeAreaView>
+
+      <Modal
+        animationType="slide"
+        visible={isModalVisible}
+        onRequestClose={() => {
+          setIsModalVisible(!isModalVisible);
+        }}
+      >
+        <BeachModal beach={displayedBeach as IBeach} />
+      </Modal>
+
       <ScrollView>
         <View style={styles.buttonContainer}>
           <PrimaryButton style={styles.button} text={SORT} onPress={handleSortPress} />
@@ -47,6 +64,7 @@ const HomePage = ({ coordinates }: IHomePageProps) => {
           return <BeachCard onPress={handleCardPress} key={beach.distance} beach={beach} />
         })}
       </ScrollView>
+
     </SafeAreaView>
   );
 }

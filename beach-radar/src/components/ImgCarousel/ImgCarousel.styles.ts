@@ -9,11 +9,16 @@ export default StyleSheet.create({
   },
   paginationContainer: {
     position: "absolute",
-    top: 135,
     left: 0,
     right: 0,
     justifyContent: "center",
     alignItems: "center",
+  },
+  paginationContainerSmall: {
+    top: 135,
+  },
+  paginationContainerLarge: {
+    top: 185,
   },
   dot: {
     width: 7,
