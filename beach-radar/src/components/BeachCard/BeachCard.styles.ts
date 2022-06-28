@@ -16,10 +16,14 @@ export default StyleSheet.create({
     overflow: 'hidden',
     backgroundColor: 'white',
   },
+  beachInfoContainer: {
+    alignItems: 'center',
+    width: '100%',
+  },
   beachInfoRow: {
+    width: '80%',
     flexDirection: 'row',
     alignItems: 'center',
-    width: '80%',
     justifyContent: 'space-between',
   },
   beachInfoTopRow: {
