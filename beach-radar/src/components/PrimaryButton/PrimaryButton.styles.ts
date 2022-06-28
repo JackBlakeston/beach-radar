@@ -9,8 +9,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 50,
     paddingVertical: 10,
-    borderRadius: 4,
+    borderRadius: 6,
     elevation: 3,
+
   },
   text: {
     color: 'white',

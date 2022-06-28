@@ -14,8 +14,22 @@ interface IPrimaryButtonProps {
 const PrimaryButton = ({ onPress, style, text }: IPrimaryButtonProps) => {
   return (
     <Pressable
-      style={[styles.mainContainer, style]}
+      style={
+        ({ pressed }) => [
+          // For ios, since they don't have ripple effect
+          {
+            backgroundColor: pressed
+              ? theme.COLOR_RIPPLE
+              : theme.COLOR_PRIMARY
+          },
+          styles.mainContainer,
+          style
+        ]
+      }
       onPress={onPress}
+      android_ripple={{
+        color: theme.COLOR_RIPPLE,
+      }}
     >
       <CustomText style={styles.text}>{text}</CustomText>
     </Pressable>
