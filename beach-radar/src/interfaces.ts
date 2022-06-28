@@ -69,6 +69,9 @@ export interface IUserReview {
   reviewText: string;
 };
 
+
+// TYPES
+
 export type TSurrounding = 'urban' | 'rural';
 
 export type TSize = 'long' | 'short' | 'cove';
@@ -84,3 +87,5 @@ export type TFeature = 'dog friendly' | 'lifeguard' | 'blue flag' | 'black flag'
 export type TAccessibility = 'beach ramp' | 'close to parking' | 'accessible parking';
 
 export type TRatingCategory = 'general' | 'cleanliness' | 'accessibility' | 'nature' | 'water quality';
+
+export type TStar = 'empty' | 'half' | 'full';

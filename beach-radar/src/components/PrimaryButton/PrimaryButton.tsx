@@ -1,4 +1,4 @@
-import { ButtonProps, GestureResponderEvent, Pressable } from "react-native";
+import { GestureResponderEvent, Pressable } from "react-native";
 import { StyleProps } from "react-native-reanimated";
 
 import CustomText from "../../../style/CustomText";
@@ -9,9 +9,11 @@ interface IPrimaryButtonProps {
   onPress: (event: GestureResponderEvent) => void;
   text: string;
   style?: StyleProps;
+  textStyle?: StyleProps;
+  icon?: JSX.Element;
 };
 
-const PrimaryButton = ({ onPress, style, text }: IPrimaryButtonProps) => {
+const PrimaryButton = ({ onPress, style, text, textStyle, icon }: IPrimaryButtonProps) => {
   return (
     <Pressable
       style={
@@ -31,7 +33,8 @@ const PrimaryButton = ({ onPress, style, text }: IPrimaryButtonProps) => {
         color: theme.COLOR_RIPPLE,
       }}
     >
-      <CustomText style={styles.text}>{text}</CustomText>
+      {icon}
+      <CustomText style={[styles.text, textStyle]}>{text}</CustomText>
     </Pressable>
   );
 };

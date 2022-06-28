@@ -8,3 +8,10 @@ export const FILTERS = 'Filters'
 // DIMENSIONS
 export const SCREEN_WIDTH = Dimensions.get('window').width;
 export const SCREEN_HEIGHT = Dimensions.get('window').height;
+
+// ?? Would this be better with ENUMS?
+// TODO find info about using ENUMS for this case
+// STAR RATING
+export const EMPTY = 'empty';
+export const HALF = 'half';
+export const FULL = 'full';

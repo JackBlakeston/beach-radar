@@ -1,24 +1,25 @@
 import { View } from "react-native";
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { FontAwesome } from '@expo/vector-icons';
 
 import CustomText from "../../../style/CustomText";
 import theme from "../../../style/theme";
 import styles from './ScoreDisplay.styles';
+import { displayFullStarRating } from './utils';
 
 interface IScoreDisplayProps {
   score: number;
-  isSingleStar: boolean;
+  isSingleStar?: boolean;
 };
 
-const ScoreDisplay = ({ score, isSingleStar }: IScoreDisplayProps) => {
+const ScoreDisplay = ({ score, isSingleStar = false }: IScoreDisplayProps) => {
   return (
     <View style={styles.mainContainer}>
-      <CustomText>{score}</CustomText>
+      <CustomText style={styles.text}>{score}</CustomText>
       {
         isSingleStar ?
-        <Ionicons style={styles.singleStar} name='star' size={theme.ICON_SIZE_SMALL} color={theme.COLOR_PRIMARY} />
+        <FontAwesome name='star' size={theme.ICON_SIZE_SMALL} color={theme.COLOR_PRIMARY} />
         :
-        <CustomText>TODO LOGIC ON MULTISTARS</CustomText> // TODO
+        displayFullStarRating(score)
       }
     </View>
   );

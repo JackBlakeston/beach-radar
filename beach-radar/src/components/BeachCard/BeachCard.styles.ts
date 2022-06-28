@@ -5,7 +5,6 @@ import theme from "../../../style/theme";
 
 export default StyleSheet.create({
   mainContainer: {
-    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
@@ -35,7 +34,7 @@ export default StyleSheet.create({
     paddingBottom: 10,
   },
   beachName: {
-    fontSize: 18,
+    fontSize: theme.FONT_SIZE_MEDIUM_PLUS,
     fontFamily: fonts.BOLD
   },
   location: {
