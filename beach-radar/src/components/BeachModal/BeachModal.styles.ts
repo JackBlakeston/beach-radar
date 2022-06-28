@@ -9,24 +9,4 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  beachInfoRow: {
-    width: '80%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  beachInfoTopRow: {
-    paddingTop: 10,
-  },
-  beachInfoBotRow: {
-    paddingTop: 12,
-    paddingBottom: 10,
-  },
-  beachName: {
-    fontSize: theme.FONT_SIZE_LARGE,
-    fontFamily: fonts.BOLD
-  },
-  location: {
-    fontFamily: fonts.LIGHT,
-  }
 });

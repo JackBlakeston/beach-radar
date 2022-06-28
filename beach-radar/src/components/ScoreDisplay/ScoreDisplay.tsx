@@ -8,15 +8,15 @@ import { displayFullStarRating } from './utils';
 
 interface IScoreDisplayProps {
   score: number;
-  isSingleStar?: boolean;
+  isCardView?: boolean;
 };
 
-const ScoreDisplay = ({ score, isSingleStar = false }: IScoreDisplayProps) => {
+const ScoreDisplay = ({ score, isCardView = false }: IScoreDisplayProps) => {
   return (
     <View style={styles.mainContainer}>
       <CustomText style={styles.text}>{score}</CustomText>
       {
-        isSingleStar ?
+        isCardView ?
         <FontAwesome name='star' size={theme.ICON_SIZE_SMALL} color={theme.COLOR_PRIMARY} />
         :
         displayFullStarRating(score)
