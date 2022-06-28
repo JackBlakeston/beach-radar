@@ -4,10 +4,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 // Screens
-import HomePage from './screens/HomePage';
+import HomePage from './screens/HomePage/HomePage';
 import BookmarksPage from './screens/BookmarksPage';
 import MapPage from './screens/MapPage';
 import SettingsPage from './screens/SettingsPage';
+import styles from './Navigation.styles';
+import theme from '../../style/theme';
+import { ICoordinates } from '../interfaces';
 
 // Screen names
 const homeName = 'Beaches';
@@ -17,7 +20,11 @@ const bookmarksName = 'Bookmarked';
 
 const Tab = createBottomTabNavigator();
 
-const MainContainer = () => {
+interface INavigationProps {
+  coordinates: ICoordinates;
+};
+
+const Navigation = ({ coordinates }: INavigationProps) => {
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -36,22 +43,17 @@ const MainContainer = () => {
               iconName = focused ? 'settings-sharp' : 'settings-outline';
             }
 
-            return <Ionicons name={iconName as string} size={27} color={color} />
+            return <Ionicons name={iconName as string} size={theme.ICON_SIZE_MEDIUM} color={color} />
           },
           tabBarActiveTintColor: 'black',
           tabBarInactiveTintColor: 'black',
-          tabBarLabelStyle: {
-            paddingBottom: 8,
-            fontSize: 10,
-          },
-          tabBarStyle: {
-            padding: 8,
-            height: 60,
-            backgroundColor: '#fab005',
-          },
+          tabBarLabelStyle: styles.tabBarLabel,
+          tabBarStyle: styles.tabBar,
         })}
       >
-        <Tab.Screen name={homeName} component={HomePage} options={{ headerShown: false }}/>
+        <Tab.Screen name={homeName} options={{ headerShown: false }}>
+          {() => <HomePage coordinates={coordinates} />}
+        </Tab.Screen>
         <Tab.Screen name={mapName} component={MapPage}/>
         <Tab.Screen name={bookmarksName} component={BookmarksPage}/>
         <Tab.Screen name={settingsName} component={SettingsPage}/>
@@ -60,4 +62,4 @@ const MainContainer = () => {
   )
 };
 
-export default MainContainer;
+export default Navigation;

@@ -1,28 +1,32 @@
 export type todoType = any;
 
-export interface Beach {
-  lat: number;
-  lon: number;
+export interface IBeach {
+  coordinates: ICoordinates
   name: string;
   location: string;
   distance: number;
   score: number;
-  surroundings: Surrounding;
-  size: Size;
-  terrain: Terrain;
-  pictures?: string[];
-  weather?: Weather;
-  seaCondition?: SeaCondition;
-  amenities?: Amenity[];
-  activities?: RatedActivity[];
-  features?: Feature[];
-  accessibility?: Accessibility;
-  wildlife?: Wildlife;
-  userRatings?: UserRating[];
-  userReviews?: UserReview[];
+  surroundings: TSurrounding;
+  size: TSize;
+  terrain: TTerrain;
+  images?: string[];
+  weather?: IWeather;
+  seaCondition?: ISeaCondition;
+  amenities?: TAmenity[];
+  activities?: IRatedActivity[];
+  features?: TFeature[];
+  accessibility?: TAccessibility;
+  wildlife?: IWildlife;
+  userRatings?: IUserRating[];
+  userReviews?: IUserReview[];
 };
 
-export interface Weather {
+export interface ICoordinates {
+  lat: number;
+  lon: number;
+}
+
+export interface IWeather {
   description: string;
   avgTemp: number;
   minTemp: number;
@@ -34,7 +38,7 @@ export interface Weather {
   windDirection: number; // TODO check this in API
 };
 
-export interface SeaCondition {
+export interface ISeaCondition {
   avgTemp: number;
   waveHeight: number;
   waveDirection: number; // TODO check this in API
@@ -43,40 +47,40 @@ export interface SeaCondition {
   lowTide: string;
 };
 
-export interface RatedActivity {
-  activity: Activity;
+export interface IRatedActivity {
+  activity: TActivity;
   rating: number;
 };
 
-export interface Wildlife {
+export interface IWildlife {
   fauna: string;
   flora: string;
   aquaticFauna: string;
 };
 
-export interface UserRating {
-  category: RatingCategory;
+export interface IUserRating {
+  category: TRatingCategory;
   rating: number;
 };
 
-export interface UserReview {
+export interface IUserReview {
   username: string;
   rating: number;
   reviewText: string;
 };
 
-export type Surrounding = 'urban' | 'rural';
+export type TSurrounding = 'urban' | 'rural';
 
-export type Size = 'long' | 'short' | 'cove';
+export type TSize = 'long' | 'short' | 'cove';
 
-export type Terrain = 'sand' | 'small pebbles' | 'large pebbles' | 'boulders' | 'volcanic' | 'rocks' | 'mud' | 'concrete';
+export type TTerrain = 'sand' | 'small pebbles' | 'large pebbles' | 'boulders' | 'volcanic' | 'rocks' | 'mud' | 'concrete';
 
-export type Amenity = 'parking' | 'bike parking' | 'showers' | 'toilets' | 'bars and restaurants' | 'water parks' | 'water activity rentals' | 'pedalo rental' | 'exercise machines' | 'playground' | 'volleyball' | 'beach chair rental' | 'jumping platforms' | 'shops' | 'grills' | 'picnic tables';
+export type TAmenity = 'parking' | 'bike parking' | 'showers' | 'toilets' | 'bars and restaurants' | 'water parks' | 'water activity rentals' | 'pedalo rental' | 'exercise machines' | 'playground' | 'volleyball' | 'beach chair rental' | 'jumping platforms' | 'shops' | 'grills' | 'picnic tables';
 
-export type Activity = 'snorkeling' | 'scuba' | 'surf' | 'windsurf' | 'kitesurf' | 'paddlesurf' | 'fishing' | 'kayaking';
+export type TActivity = 'snorkeling' | 'scuba' | 'surf' | 'windsurf' | 'kitesurf' | 'paddlesurf' | 'fishing' | 'kayaking';
 
-export type Feature = 'dog friendly' | 'lifeguard' | 'blue flag' | 'black flag' | 'nudist' | 'natural reserve' | 'palm trees' | 'caves' | 'cliffs';
+export type TFeature = 'dog friendly' | 'lifeguard' | 'blue flag' | 'black flag' | 'nudist' | 'natural reserve' | 'palm trees' | 'caves' | 'cliffs';
 
-export type Accessibility = 'beach ramp' | 'close to parking' | 'accessible parking';
+export type TAccessibility = 'beach ramp' | 'close to parking' | 'accessible parking';
 
-export type RatingCategory = 'general' | 'cleanliness' | 'accessibility' | 'nature' | 'water quality';
+export type TRatingCategory = 'general' | 'cleanliness' | 'accessibility' | 'nature' | 'water quality';
