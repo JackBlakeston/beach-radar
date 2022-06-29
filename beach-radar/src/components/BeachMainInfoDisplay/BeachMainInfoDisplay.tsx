@@ -20,7 +20,7 @@ const BeachMainInfoDisplay = ({ beach, isCardView = false }: IBeachMainInfoDispl
           style={[
             styles.beachName,
             {
-              fontSize: isCardView ? theme.FONT_SIZE_MEDIUM_PLUS : theme.FONT_SIZE_LARGE_PLUS
+              fontSize: isCardView ? theme.FONT_SIZE_MEDIUM_PLUS : theme.FONT_SIZE_HUGE
             }
           ]}
         >

@@ -9,9 +9,22 @@ export const FILTERS = 'Filters'
 export const SCREEN_WIDTH = Dimensions.get('window').width;
 export const SCREEN_HEIGHT = Dimensions.get('window').height;
 
-// ?? Would this be better with ENUMS?
-// TODO find info about using ENUMS for this case
-// STAR RATING
-export const EMPTY = 'empty';
-export const HALF = 'half';
-export const FULL = 'full';
+//?? Justified to use Enums here or would it be better with normal constants??
+export enum StarTypes {
+  EMPTY = 'empty',
+  HALF = 'half',
+  FULL = 'full',
+};
+
+export enum BeachViewCategory {
+  WEATHER = 'Weather',
+  SEA_CONDITION = 'Sea condition',
+  AMENITIES = 'Amenities',
+  ACTIVITIES = 'Activities',
+  FEATURES = 'Features',
+  ACCESSIBILITY = 'Accessibility',
+  WILDLIFE = 'Wildlife',
+  USER_RATINGS = 'User ratings',
+  USER_REVIEWS = 'User reviews',
+  LIVE_UPDATEDS = 'Live updates'
+};

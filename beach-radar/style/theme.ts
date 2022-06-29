@@ -11,6 +11,7 @@ export default {
   COLOR_WHITE: 'white',
   COLOR_PRIMARY: '#fab005',
   COLOR_RIPPLE: '#fcce62',
+  COLOR_RIPPLE_LIGHT: '#fff0cc',
   COLOR_DISABLED: '#a8a8a8',
 
   ICON_SIZE_MEDIUM: 27,

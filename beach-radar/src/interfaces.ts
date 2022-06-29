@@ -1,4 +1,8 @@
+import { BeachViewCategory } from "./constants";
+
 export type todoType = any;
+
+// INTERFACES
 
 export interface IBeach {
   coordinates: ICoordinates
@@ -69,6 +73,10 @@ export interface IUserReview {
   reviewText: string;
 };
 
+export interface IAccordionSection {
+  title: BeachViewCategory;
+  content: JSX.Element;
+};
 
 // TYPES
 
