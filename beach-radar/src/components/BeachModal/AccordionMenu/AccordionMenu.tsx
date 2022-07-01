@@ -8,6 +8,7 @@ import { IAccordionSection, IBeach, todoType } from "../../../interfaces";
 import MenuHeader from './MenuHeader/MenuHeader';
 import styles from './AccordionMenu.styles';
 import theme from '../../../../style/theme';
+import SeaCondition from './Sections/SeaCondition/SeaCondition';
 
 interface IAccordionMenuProps {
   beach: IBeach;
@@ -26,7 +27,11 @@ const AccordionMenu = ({ beach }: IAccordionMenuProps) => {
   };
 
   const renderContent = (section: IAccordionSection) => {
-    return section.content;
+    return (
+      <View style={styles.contentContainer} >
+        {section.content}
+      </View>
+    );
   };
 
   const MODAL_SECTIONS: IAccordionSection[] = [
@@ -36,7 +41,7 @@ const AccordionMenu = ({ beach }: IAccordionMenuProps) => {
     },
     {
       title: BeachViewCategory.SEA_CONDITION,
-      content: <View><CustomText>Second content</CustomText></View>
+      content: <SeaCondition seaCondition={beach.seaCondition} />
     },
     {
       title: BeachViewCategory.AMENITIES,

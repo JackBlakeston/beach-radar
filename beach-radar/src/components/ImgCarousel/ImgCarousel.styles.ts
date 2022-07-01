@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
 import theme from "../../../style/theme";
+import { SCREEN_WIDTH } from "../../constants";
 
 export default StyleSheet.create({
   mainContainer: {
@@ -26,5 +27,15 @@ export default StyleSheet.create({
     borderRadius: 4,
     marginHorizontal: 0,
     borderWidth: 1,
-  }
+  },
+  imageSmall: {
+    height: theme.IMAGE_HEIGHT_CARD,
+    width: theme.IMAGE_WIDTH_CARD,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8
+  },
+  imageLarge: {
+    height: theme.IMAGE_HEIGHT_MODAL,
+    width: theme.IMAGE_WIDTH_MODAL,
+  },
 });

@@ -10,4 +10,7 @@ export default StyleSheet.create({
     // borderTopWidth: 0.5, // TODO decide on borders
     borderBottomWidth: 0.5,
   },
+  contentContainer: {
+    paddingHorizontal: 20,
+  },
 });

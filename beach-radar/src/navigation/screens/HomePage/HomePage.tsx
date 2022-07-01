@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, GestureResponderEvent, Modal, ScrollView, View } from 'react-native';
+import { Alert, FlatList, GestureResponderEvent, Modal, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CustomText from '../../../../style/CustomText';
+import theme from '../../../../style/theme';
 
 import BeachCard from '../../../components/BeachCard/BeachCard';
 import BeachModal from '../../../components/BeachModal/BeachModal';
@@ -11,6 +12,10 @@ import { FILTERS, SORT } from '../../../constants';
 import { ICoordinates, IBeach } from '../../../interfaces';
 import { getBeaches } from '../../../utils/getBeaches';
 import styles from './HomePage.styles';
+
+interface renderItemProps {
+  item: IBeach;
+};
 
 interface IHomePageProps {
   coordinates: ICoordinates;
@@ -41,6 +46,19 @@ const HomePage = ({ coordinates }: IHomePageProps) => {
     setIsModalVisible(true);
   }
 
+  const renderItem = ({ item }: renderItemProps) => {
+    return <BeachCard onPress={handleCardPress} beach={item} />;
+  };
+
+  const filterButtons = () => {
+    return (
+      <View style={styles.buttonContainer}>
+        <PrimaryButton style={styles.button} text={SORT} onPress={handleSortPress} />
+        <PrimaryButton style={styles.button} text={FILTERS} onPress={handleFiltersPress} />
+      </View>
+    );
+  }
+
   return (
     // TODO check if FlatList gives us better performance, once we have a large enough DB
     <SafeAreaView>
@@ -55,15 +73,21 @@ const HomePage = ({ coordinates }: IHomePageProps) => {
         <BeachModal beach={displayedBeach as IBeach} />
       </Modal>
 
-      <ScrollView>
-        <View style={styles.buttonContainer}>
-          <PrimaryButton style={styles.button} text={SORT} onPress={handleSortPress} />
-          <PrimaryButton style={styles.button} text={FILTERS} onPress={handleFiltersPress} />
-        </View>
-        {beaches && beaches.map(beach => {
-          return <BeachCard onPress={handleCardPress} key={beach.distance} beach={beach} />
-        })}
-      </ScrollView>
+      <FlatList
+        data={beaches}
+        renderItem={renderItem}
+        initialNumToRender={5}
+        keyExtractor={(item, index) => `${index}`}
+        ListHeaderComponent={filterButtons}
+        removeClippedSubviews={true} // ! Known to cause bugs on iOS, watch out
+        getItemLayout={(data, index) => (
+          {
+            length: theme.BEACH_CARD_HEIGHT_W_MARGINS,
+            offset: theme.BEACH_CARD_HEIGHT_W_MARGINS * index,
+            index
+          }
+        )}
+      />
 
     </SafeAreaView>
   );

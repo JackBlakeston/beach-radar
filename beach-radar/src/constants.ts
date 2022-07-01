@@ -28,3 +28,33 @@ export enum BeachViewCategory {
   USER_REVIEWS = 'User reviews',
   LIVE_UPDATEDS = 'Live updates'
 };
+
+export enum Surroundings {
+  URBAN = 'Urban',
+  RURAL = 'Rural',
+};
+
+export enum Size {
+  LONG = 'Long',
+  SHORT = 'Short',
+  MEDIUM = 'Medium',
+  COVE = 'Cove',
+};
+
+export enum Terrain {
+  SAND = 'Sand',
+  SMALL_PEBBLES = 'Small pebbles',
+  LARGE_PEBBLES = 'Large pebbles',
+  BOULDERS = 'Boulders',
+  VOLCANIC = 'Volcanic',
+  ROCKS = 'Rocks',
+  MUD = 'Mud',
+  CONCRETE = 'Concrete',
+};
+
+export enum IconName {
+  URBAN = 'home-city-outline',
+  RURAL = 'trees',
+  SIZE = 'resize',
+  TERRAIN = 'terrain'
+};

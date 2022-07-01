@@ -5,7 +5,8 @@ import getDistance from "./getDistance";
 
 export const getBeaches = async (userCoordinates: ICoordinates) => {
   const snapshot = await get(dbRef);
-  const beaches: IBeach[] = Object.values(snapshot.val().beaches);
+  const beaches: IBeach[] = snapshot.val().beaches;
+
   beaches.forEach(beach => {
     const distance = getDistance(userCoordinates, beach.coordinates);
     beach.distance = distance;

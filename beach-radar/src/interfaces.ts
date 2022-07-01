@@ -1,4 +1,4 @@
-import { BeachViewCategory } from "./constants";
+import { BeachViewCategory, Size, Surroundings, Terrain } from "./constants";
 
 export type todoType = any;
 
@@ -10,9 +10,9 @@ export interface IBeach {
   location: string;
   distance: number;
   score: number;
-  surroundings: TSurrounding;
-  size: TSize;
-  terrain: TTerrain;
+  surroundings: Surroundings;
+  size: Size;
+  terrain: Terrain;
   images?: string[];
   weather?: IWeather;
   seaCondition?: ISeaCondition;
@@ -79,12 +79,6 @@ export interface IAccordionSection {
 };
 
 // TYPES
-
-export type TSurrounding = 'urban' | 'rural';
-
-export type TSize = 'long' | 'short' | 'cove';
-
-export type TTerrain = 'sand' | 'small pebbles' | 'large pebbles' | 'boulders' | 'volcanic' | 'rocks' | 'mud' | 'concrete';
 
 export type TAmenity = 'parking' | 'bike parking' | 'showers' | 'toilets' | 'bars and restaurants' | 'water parks' | 'water activity rentals' | 'pedalo rental' | 'exercise machines' | 'playground' | 'volleyball' | 'beach chair rental' | 'jumping platforms' | 'shops' | 'grills' | 'picnic tables';
 
